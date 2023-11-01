@@ -1,7 +1,8 @@
 # dba_questions
 A list of interview question and answers I have had to answer.
 
-##General: not platform specific.
+##General 
+Not platform specific.
 Q: Explain ACID acronym?
 A: - Atomicity: Either the entire statement is executed, or none of it is executed
    - Consistency: Transactions only make changes to tables in predefined, predictable ways. 
