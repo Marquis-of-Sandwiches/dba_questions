@@ -20,7 +20,9 @@ A: - Read Committed: SELECT only returns committed rows.
      
 Q: Explain clustered indexes.
 
-A: A unique index stored in a sequential order.  Data is stored in the index.  Non-clustered index stores a pointer to the data.
+A: A unique index stored in a sequential order.  Data is stored in the index.  
+    Non-clustered index stores a pointer to the data.
+    
    [Nice explanation](https://www.geeksforgeeks.org/difference-between-clustered-and-non-clustered-index/)
    
 Q: Name the common SQL data types.  (I was thrown by this one. What they wanted was the simplest answer. I was thinking about unix epoch, timestamp, uuid, cidr, money, json...)
@@ -30,6 +32,7 @@ A: - Numeric. Decimal, integer, float, etc.
    - String/Character.  ASCII characters, Json included.
    - Unicode. The wild west!
    - Binary blob. Potentially includes geography types!
+     
 [Decent explanation](https://www.digitalocean.com/community/tutorials/sql-data-types)
 
 ## MySQL
