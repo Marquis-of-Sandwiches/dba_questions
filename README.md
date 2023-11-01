@@ -1,7 +1,7 @@
 # dba_questions
 A list of interview question and answers I have had to answer.
 
-##General 
+## General 
 Not platform specific.
 Q: Explain ACID acronym?
 A: - Atomicity: Either the entire statement is executed, or none of it is executed
@@ -23,9 +23,9 @@ A: - Numeric. Decimal, integer, float, etc.
    - Unicode. The wild west!
    - Binary blob. Potentially includes geography types!
 [Decent explanation](https://www.digitalocean.com/community/tutorials/sql-data-types)
-###MySQL
+## MySQL
 
-###Microsoft_SQL
+## Microsoft_SQL
 
 
 ##PostgreSQL
