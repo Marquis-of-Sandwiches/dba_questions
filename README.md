@@ -55,6 +55,8 @@ Q: How do you install MySQL? (Not a kubernetes shop.  Also not automated)
 ## PostgreSQL
 Q: I want two PostgreSQL servers in active/passive configuration in geographically distant data centers, and without VRRP, to failover in less than a second and not lose transactions.  How would you do that?
 
+- I said client connection pooling and client health checks.  They didn't want that. 
+
 Q: I want two PostgreSQL servers in active/active configuration in geographically distant data centers to double the amount of transactions the database can process.
 
 - Yes, that really happened.
