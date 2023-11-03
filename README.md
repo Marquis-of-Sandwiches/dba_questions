@@ -48,16 +48,52 @@ Q: How do you install MySQL? (Not a kubernetes shop.  Also not automated)
 - Make sure the service is enabled to start on boot.
 - Start mysql.
 - Check to see if it's running.  Fix any syntax issues.
- 
+
+Q: Define replication lag.
+
+- The difference between the timestamps of the relay log most recently executed on the secondary, versus the relay log entry most recently downloaded by the IO_THREAD on the secondary.
+
+Q: Are there other ways replication can be blocked?
+
+Yes.  
+
+- If the replica behind a whole binlog, the lag isn't shown. Not really a "block" but more unreported lag.
+- If the primary table is exclusively locked for a long period of time.  An example is DDL on a giant table.
+- Statement based replication can be slower on busy servers, but, be careful with blindly switching to mixed. Your Kafka admin might have words!
+- Networking issues.
+
+Q: Can minor version updates break an application.
+
+Yes. Absolutely.
+
+Q: Describe ways to tune a mysql database.
+
+- Turn on slow_query_log = 1 and log_output=TABLE
+- Dealing with many connections, open_files_limit may need to be increased.
+- Increase the number of client connections allowed with max_connections.
+- VERY reluctant to tune innodb defaults. (YMMV)
+- Alter Buffer_pool size to be a little more than the total size of database in RAM.  The 80% rule used to work.  Now it's more like 95%. Cgroups is your friend!
+- join_buffer size. Change during session for large joins.
+- sort_buffer size. Change during session and experiment, heavily.
+- tmp_dir. Not a huge optimization. Very handy for large table operations.
+
+Q: Is AWS Aurora a real MySQL database?
+
+- Yes, because it acts almost exactly like a MySQL database.  Interviewer disagreed with me.  It isn't "real."  
+
+- Yes, that really happened.  The interview did not get better.
+
+
+
 ## Microsoft_SQL
 
 
 ## PostgreSQL
-Q: I want two PostgreSQL servers in active/passive configuration in geographically distant data centers, and without VRRP, to failover in less than a second and not lose transactions.  How would you do that?
+Q: Interviewer wants two PostgreSQL servers in active/passive configuration in geographically distant data centers, and without VRRP, to failover in less than a second and not lose transactions.  How would you do that?
 
 - I said client connection pooling and client health checks.  They didn't want that. 
 
-Q: I want two PostgreSQL servers in active/active configuration in geographically distant data centers to double the amount of transactions the database can process.
+Q: Interviewer wants two PostgreSQL servers in active/active configuration in geographically distant data centers to double the amount of transactions the database can process.
 
 - Yes, that really happened.
 
