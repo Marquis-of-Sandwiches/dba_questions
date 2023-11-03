@@ -77,6 +77,11 @@ Q: Describe ways to tune a mysql database.
 - sort_buffer size. Change during session and experiment, heavily.
 - tmp_dir. Not a huge optimization. Very handy for large table operations.
 
+Q: What's a fast way to fix too many connections error?
+
+- TRUNCATE TABLE performance_schema.host_cache; Or, in the old days, FLUSH HOSTS.
+
+
 Q: Is AWS Aurora a real MySQL database?
 
 - Yes, because it acts almost exactly like a MySQL database.  Interviewer disagreed with me.  It isn't "real."  
