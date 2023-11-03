@@ -62,13 +62,19 @@ Yes.
 - Statement based replication can be slower on busy servers, but, be careful with blindly switching to mixed. Your Kafka admin might have words!
 - Networking issues.
 
+Q: How to show database uptime?
+
+- SHOW GLOBAL STATUS LIKE 'Uptime'; (in seconds)
+- SELECT ROUND(@d:=VARIABLE_VALUE/60/60/24) AS days, ROUND(@d/30.5) AS months FROM performance_schema.global_status WHERE VARIABLE_NAME = 'Uptime';
+  I like rounding. Stolen from stackoverflow.
+
 Q: Can minor version updates break an application.
 
 Yes. Absolutely.
 
 Q: Describe ways to tune a mysql database.
 
-- Turn on slow_query_log = 1 and log_output=TABLE
+- Turn on slow_query_log = 1 and log_output=TABLE.  Remember to set long_query_time = $WHATEVER
 - Dealing with many connections, open_files_limit may need to be increased.
 - Increase the number of client connections allowed with max_connections.
 - VERY reluctant to tune innodb defaults. (YMMV)
@@ -81,6 +87,12 @@ Q: What's a fast way to fix too many connections error?
 
 - TRUNCATE TABLE performance_schema.host_cache; Or, in the old days, FLUSH HOSTS.
 
+Q: Find longest running query and kill it.
+
+- SHOW PROCESS LIST
+- Typically looking for "SELECT * FROM.." type queries.
+- Get the process number.
+- KILL the process id. 
 
 Q: Is AWS Aurora a real MySQL database?
 
