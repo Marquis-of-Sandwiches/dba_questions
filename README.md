@@ -39,7 +39,7 @@ Q: What does the term sargeable describe?
 
 - Root of the term is an acroynm  for "search arguments." SARG
 - A thorough answer is complicated.  [Good explanation](https://dba.stackexchange.com/questions/162263/what-does-the-word-sargable-really-mean)
-- A simple answer: When a query uses index features/properties in the WHERE clause.  WHERE UPPER(FIRST_NAME) like 'R%' vs WHERE FIRST_NAME like 'r%'. The former has to UPPER(FIRST_NAME) all rows before deciding.  The latter uses the index as-is and seeks. 
+- A simple answer: When a query uses index features/properties in the WHERE clause.  WHERE UPPER(FIRST_NAME) like 'R%' vs WHERE FIRST_NAME like 'r%'. The former has to UPPER(FIRST_NAME) all rows before deciding, unable to use an index.  The latter uses the index and seeks. 
 
 
 ## MySQL
